@@ -1,0 +1,27 @@
+{
+  "name": "typescript-design-patterns",
+  "version": "1.0.0",
+  "description": "Curso de padrões de Projetos em Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoDG/TypeScript-Design-Patterns.git"
+  },
+  "author": "Bruno Dias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoDG/TypeScript-Design-Patterns/issues"
+  },
+  "homepage": "https://github.com/BrunoDG/TypeScript-Design-Patterns#readme",
+  "devDependencies": {
+    "@types/node": "^16.4.6",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.31.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {}
+}
