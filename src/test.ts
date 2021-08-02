@@ -109,10 +109,218 @@ console.log(`onde está 69 em b: ${b.lastIndexOf(69)}`);
 /**
  * Exemplo de uso de Dictionary
  */
-let f: { [key: number]: string };
+let f: { [id: number]: string };
 f = { 123: "abc", 456: "def" };
 let g: { [key: string]: boolean };
 g = { abc: true, def: false, ghi: true };
+let h: { [key: string]: string };
+h = { a: "car", b: "train", c: "plane", d: "boat" };
 
 console.log(`f: ${f[123]}`);
 console.log(`g: ${g["def"]}`);
+
+// Se a chave for string, você pode retornar como objeto em TS
+console.log(`g: ${g.abc}`);
+// Mas não funciona quando a chave / o id é um número
+console.log(`f: ${f[123]}`);
+
+// dá pra adicionar ítens em um dictionary
+h["e"] = "go-cart";
+console.log(h);
+
+// temos como deletar também
+delete f[456];
+console.log(f);
+
+// Dicionários podem ter valores de qualquer tipo, até mesmo arrays
+let i: { [id: number]: number[] };
+i = { 1: [1, 2, 3], 2: [4, 5, 6], 3: [7, 8, 9], 4: [10, 11, 12] };
+console.log(i);
+
+// Para criar um objeto vazio, basta apenas inserir tipos vazios
+let eObj = {};
+
+/**
+ * Exemplo de uso de Tuplas
+ */
+let j: [number, string];
+j = [1, "abc"];
+let k: [string, boolean, number];
+k = ["abc", false, 123];
+
+console.log(j[1]);
+console.log(k[2]);
+
+/**
+ * Exemplo de uso de Sets
+ */
+let l: Set<number>;
+l = new Set([1, 2, 3, 4]);
+// Valores repetidos não são adicionados ao set
+let m: Set<string>;
+m = new Set(["a", "b", "c", "d", "a"]);
+let n: Set<unknown>;
+n = new Set([1, "b", true]);
+
+console.log(l);
+console.log(m);
+console.log(n);
+
+const o: Set<string> = new Set();
+o.add("cat");
+o.add("dog");
+o.add("bird");
+
+console.log(o);
+
+// podemos deletar um ítem do set.
+o.delete("dog");
+console.log(o);
+
+// podemos retornar um ítem específico de um Set usando a função Array.from()
+console.log(Array.from(o)[1]);
+// tembém podemos imprimir o comprimento do set
+console.log(o.size);
+// E verificar se o set tem um elemento específico ou não
+console.log(o.has("bird"));
+
+// --------==== Fim dos tipos básicos de Typescript ====--------
+
+/**
+ * Exemplos de usos de Classes em Typescript
+ */
+
+class Cat {
+  name: string;
+  stepsWalked: number;
+  /**
+   *  podemos iniciar de duas formas:
+   *  - Dentro do construtor, como fiz abaixo
+   *  - Direto quando declaramos a variável no escopo global.
+   */
+
+  constructor(name: string) {
+    this.name = name;
+    this.stepsWalked = 0;
+  }
+
+  walk(): void {
+    console.log("O gato tá andando");
+  }
+
+  walk2(steps: number): void {
+    console.log(this.name + ", o gato, deu " + steps + " passos.");
+    this.stepsWalked += steps;
+  }
+
+  totalStepCount(): number {
+    return this.stepsWalked;
+  }
+}
+
+const GATO = new Cat("Jão");
+GATO.walk();
+GATO.walk2(20);
+GATO.walk2(20);
+console.log(
+  GATO.name +
+    ", o gato, andou um total de " +
+    GATO.totalStepCount() +
+    " passos."
+);
+
+/**
+ * Exemplos de usos de Interfaces em Typescript
+ */
+
+interface IAnimal {
+  name: string;
+  age: number;
+
+  feed(food: string, amount: number): void;
+}
+
+/**
+ * Se a classe que implementa a interface não tiver todos os atributos e funções,
+ * A classe não vai funcionar, por não implementar corretamente tudo o que foi
+ * definido dentro da interface.
+ * Então, por padrão, a classe é obrigada a implementar todos os métodos da
+ * interface que ela herdar, mas se quiser, pode adicionar outros métodos
+ * e atributos adicionais.
+ */
+class Dog implements IAnimal {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  feed(food: string, amount: number): void {
+    console.log(
+      "Feeding " + this.name + " the Dog " + amount + " kg of " + food
+    );
+  }
+}
+
+const CAO = new Dog("MoonMoon", 4);
+CAO.feed("Beef", 0.5);
+
+/**
+ * Exemplo de uso de classes abstratas em Typescript
+ */
+
+class Animal {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  feed(food: string, amount: number): void {
+    console.log(
+      "Feeding " +
+        this.name +
+        " the " +
+        this.constructor.name +
+        " " +
+        amount +
+        " kg of " +
+        food
+    );
+  }
+}
+
+class ACat extends Animal {
+  isHungry: boolean;
+  constructor(name: string, age: number, isHungry: boolean) {
+    /**
+     * super() chama o construtor da classe mãe.
+     */
+    super(name, age);
+    this.isHungry = isHungry;
+  }
+
+  /**
+   * super também serve para chamar métodos da classe mãe.
+   */
+
+  feed(food: string, amount: number): void {
+    if (this.isHungry) {
+      super.feed(food, amount);
+    } else {
+      console.log(
+        this.name + " the " + this.constructor.name + " is not hungry."
+      );
+    }
+  }
+}
+class ADog extends Animal {}
+
+const AGato = new ACat("Cosmo", 8, false);
+const ACao = new ADog("Rusty", 12);
+AGato.feed("Fish", 0.1);
+ACao.feed("Beef", 0.4);
