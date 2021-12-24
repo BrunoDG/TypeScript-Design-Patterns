@@ -26,7 +26,8 @@ De acordo com o grupo Gang of Four, podemos dividir todos os 23 padrões de proj
 
 ## Course progress / Progresso do curso
 
- - [ ] - TypeScript Basics / Básico de Typescript
+ - [x] - TypeScript Basics / Básico de Typescript
+ - [x] - UML Diagrams Basics
 
  ### Creational Design Patterns
  - [ ] - Factory

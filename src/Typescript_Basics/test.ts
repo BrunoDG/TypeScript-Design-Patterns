@@ -324,3 +324,22 @@ const AGato = new ACat("Cosmo", 8, false);
 const ACao = new ADog("Rusty", 12);
 AGato.feed("Fish", 0.1);
 ACao.feed("Beef", 0.4);
+
+class BCat {
+  /**
+   * Desnecessário incluir o public antes, já que em Typescript
+   * public é o padrão.
+   *
+   * Se for Private, torna-se privado. Embora em Typescript ele não
+   * funcione, em Javascript não há equivalente, portanto roda normal o código.
+   * Já em TS, não. Pois alega erro de acesso.
+   */
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+const CAT = new BCat("Cosmo");
+console.log(CAT.name);
