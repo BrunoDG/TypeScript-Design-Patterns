@@ -26,33 +26,33 @@ De acordo com o grupo Gang of Four, podemos dividir todos os 23 padrões de proj
 
 ## Course progress / Progresso do curso
 
-[ ] - TypeScript Basics / Básico de Typescript
+ - [ ] - TypeScript Basics / Básico de Typescript
 
-[ ] - Creational
-[ ] - Factory
-[ ] - Abstract Factory
-[ ] - Builder
-[ ] - Prototype
-[ ] - Singleton
+ ### Creational Design Patterns
+ - [ ] - Factory
+ - [ ] - Abstract Factory
+ - [ ] - Builder
+ - [ ] - Prototype
+ - [ ] - Singleton
 
-[ ] - Structural
-[ ] - Decorator
-[ ] - Adapter
-[ ] - Facade
-[ ] - Bridge
-[ ] - Composite
-[ ] - FlyWeight
-[ ] - Proxy
+ ### Structural Design Patterns
+ - [ ] - Decorator
+ - [ ] - Adapter
+ - [ ] - Facade
+ - [ ] - Bridge
+ - [ ] - Composite
+ - [ ] - FlyWeight
+ - [ ] - Proxy
 
-[ ] - Behavioral
-[ ] - Command
-[ ] - CHain of Responsibility
-[ ] - Observer
-[ ] - Interpreter
-[ ] - Iterator
-[ ] - Mediator
-[ ] - Memento
-[ ] - State
-[ ] - Strategy
-[ ] - Template
-[ ] - Visitor
+### Behavioral Design Patterns
+ - [ ] - Command
+ - [ ] - CHain of Responsibility
+ - [ ] - Observer
+ - [ ] - Interpreter
+ - [ ] - Iterator
+ - [ ] - Mediator
+ - [ ] - Memento
+ - [ ] - State
+ - [ ] - Strategy
+ - [ ] - Template
+ - [ ] - Visitor
